@@ -1,0 +1,11 @@
+<svg id="Logo" xmlns="http://www.w3.org/2000/svg" width="204" height="62.572" viewBox="0 0 204 62.572">
+  <g id="Logo_Text_" data-name="Logo Text " transform="translate(48 1.572)">
+    <text id="Scratch" transform="translate(0 45)" fill="#363837" font-size="45" font-family="Nunito-Bold, Nunito" font-weight="700"><tspan x="0" y="0" letter-spacing="0.02em">scratc</tspan><tspan y="0">h</tspan></text>
+  </g>
+  <g id="Loco_Icon_" data-name="Loco Icon ">
+    <g id="Group" transform="translate(0 0)">
+      <path id="Path" d="M32.653,31.31A23.8,23.8,0,0,1,0,30.763L33.223,0A21.505,21.505,0,0,1,32.653,31.31Z" transform="translate(0.254 19.619)" fill="#30be76"/>
+      <path id="Path-2" data-name="Path" d="M39.7,6.761,6.481,37.525a21.505,21.505,0,0,1,.57-31.31A23.8,23.8,0,0,1,39.7,6.761Z" transform="translate(0 0)" fill="#f8b449"/>
+    </g>
+  </g>
+</svg>

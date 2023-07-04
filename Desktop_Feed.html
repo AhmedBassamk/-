@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="css/all.css" />
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/hover-min.css" />
+    <link rel="stylesheet" href="css/mystyle.css" />
+    <style>
+   
+      .parent-popup {
+        position: fixed;
+        display: none;
+        z-index: 1;
+        background-color: #e1e1e165;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+      }
+      .popup {
+        max-height: 680px;
+        overflow: scroll;
+        position: relative;
+        border-radius: 10px;
+        box-shadow: 0 0 10px gainsboro;
+      }
+      
+      .popup::-webkit-scrollbar {
+        width: 2px;
+      }
+
+      /* Track */
+      .popup::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+
+      /* Handle */
+      .popup::-webkit-scrollbar-thumb {
+        background: #888;
+      }
+
+      /* Handle on hover */
+      .popup::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+      .recipe__ {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+      .recipe__ label {
+        font-size: 17px;
+        color: #a8a8a8;
+      }
+      .recipe__ input {
+        border: none;
+        padding: 5px 0;
+        border-bottom: 1px solid #a8a8a8;
+      }
+      .addinfo textarea {
+        border: none;
+        padding: 5px 0;
+        border-bottom: 1px solid #a8a8a8;
+      }
+      .recipe__ input:focus {
+        border: none;
+        outline: none;
+        padding: 5px 0;
+        border-bottom: 1px solid green;
+      }
+      .addinfo textarea:focus {
+        border: none;
+        outline: none;
+        padding: 5px 0;
+        border-bottom: 1px solid green;
+      }
+      .btn-custom2 {
+        background-color: transparent;
+        font-size: 16px;
+        border: 2px dashed rgb(197, 197, 197) ;
+        color: rgb(197, 197, 197);
+        border-radius: 10px;
+      }
+      .btn-custom2 span:nth-child(1){
+        font-size: 30px;
+        font-weight: 100;
+        position: relative;
+        bottom: 2px;
+      }
+      .btn-custom2 span:nth-child(2){
+        position: relative;
+        bottom: 6px;
+        right: 2px;
+      }
+      .sel_form{
+        padding: 17px 10px;
+        width: 200px;
+        border: none;
+        border-radius: 10px;
+        box-shadow: -02px 2px 11px gainsboro;
+      }
+      .buttons_{
+        width: 350px;
+      }
+      .buttons_ button{
+        padding: 15px 10px;
+        width: 160px;
+    }
+    .fixd{
+        position: fixed;
+      background-color: white;
+    }
+    </style>
+  </head>
+  <body style="background: #f7f8fa">
+    <header class="bg-white mb-5">
+      <div
+        class="container d-flex justify-content-between align-items-center py-3"
+      >
+        <div class="logo">
+          <img src="img/Logo.svg" alt="" />
+        </div>
+        <div class="search">
+          <form action="" method="get">
+            <i class="fas fa-search"></i>
+            <input
+              type="search"
+              name="search"
+              placeholder="Search Recipe, Profile, or Ingredients"
+              id=""
+            />
+          </form>
+        </div>
+        <div class="nav d-flex justify-content-between align-items-center">
+          <a href="" class="mx-3"><img src="img/Notifications.svg" alt="" /></a>
+          <a href="" class="mx-3"><img src="img/Message.svg" alt="" /></a>
+          <a href="" class="mx-3">
+            <img src="img/Oval.png" alt="" />
+          </a>
+        </div>
+      </div>
+    </header>
+    <main class="col-lg-12">
+      <div class="container d-flex">
+        <div class="col-lg-3 mx-1 p-0">
+          <div class="card_prof bg-white py-3 px-4 mb-4">
+            <div class="top_card_ d-flex border-bottom">
+              <div class="image mr-3">
+                <img src="img/Oval.png" alt="" />
+              </div>
+              <div class="information">
+                <h5 class="text-dark">Zeb Al Ard</h5>
+                <p style="font-size: 14px">Lorem, ipsum dolor.</p>
+                <div class="down d-flex justify-content-between my-2">
+                  <span>58m followers</span>
+                  <span class="mx-2">.</span>
+                  <span>28k likes</span>
+                </div>
+              </div>
+            </div>
+            <div
+              class="bottom_card_ d-flex justify-content-between align-items-center my-3"
+            >
+              <div class="count text-center">
+                <h4>50</h4>
+                <p>Recipes</p>
+              </div>
+              <div class="count text-center">
+                <h4>20</h4>
+                <p>saved</p>
+              </div>
+              <div class="count text-center">
+                <h4>650</h4>
+                <p>following</p>
+              </div>
+            </div>
+          </div>
+          <div class="top_recipe bg-white p-4">
+            <h4>Top 5 Recipe today</h4>
+            <ul>
+              <li>Tea-Smoked Creamy Chicken</li>
+              <li>Pickled Savory Tortilla</li>
+              <li>Stuffed Basil & Mint Salmon</li>
+              <li>Strawberry Jelly</li>
+              <li>Cinnamon and Lime Toffee</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div
+            class="parent-popup  justify-content-center align-items-center"
+          >
+            <div class="popup bg-white col-lg-5 p-5">
+                <button class="exit text-right"><i class="fas fa-times"></i></button>
+              <h4>Create New Recipe</h4>
+              <div class="r-n d-flex align-items-center">
+                <label for="images" class="drop-container mr-4">
+                  <span class="drop-title">+</span>
+                  <input type="file" id="images" accept="image/*" required />
+                </label>
+                <form action="" class="w-100">
+                  <div class="recipe__">
+                    <label for="">Recipe Name</label>
+                    <input
+                      type="text"
+                      name="name"
+                      id="custom_inp"
+                      class="w-100 mb-2"
+                      placeholder="Write Down Recipe Name"
+                    />
+              </div>
+            </div>
+              <div class="cards_inp">
+                <div
+                  class="card_o p-3 bg-white my-4"
+                  style="box-shadow: 0 0 15px gainsboro; border-radius: 10px"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-center mb-3"
+                  >
+                    <h5>Gallery</h5>
+                    <i class="fas fa-pen"></i>
+                  </div>
+                  <label for="imag" class="drop-contain">
+                    <p class="title">
+                      <span class="text-dark">+</span> Upload Images or Open Camera
+                    </p>
+                    <input type="file" id="imag" accept="image/*" required />
+                  </label>
+                </div>
+                <div
+                  class="card_o p-3 bg-white my-4"
+                  style="box-shadow: 0 0 15px gainsboro; border-radius: 10px"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-center mb-3"
+                  >
+                    <h5>Ingredients</h5>
+                    <i class="fas fa-pen"></i>
+                  </div>
+                  <div
+                    class="accordion accordion-flush"
+                    id="accordionFlushExample"
+                  >
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="flush-headingOne">
+                        <button
+                          class="p-2 px-3 text-left btn-custom2 w-100"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#flush-collapseOne"
+                          aria-expanded="false"
+                          aria-controls="flush-collapseOne"
+                        >
+                        <span class="text-dark mr-3">+</span> <span>Add Ingredient</span>
+                        </button>
+                      </h2>
+                      <div
+                        id="flush-collapseOne"
+                        class="accordion-collapse collapse"
+                        aria-labelledby="flush-headingOne"
+                        data-bs-parent="#accordionFlushExample"
+                      >
+                        <div class="accordion-body">
+                         <div class="addinfo">
+                            <label for="">Add Ingredient</label>
+                            <textarea name="" cols="30" rows="4" type="text"
+                            id="custom_inp"
+                            class="w-100 mb-2"
+                            placeholder="Write Ingredients
+----------------
+----------------
+----------------"></textarea>
+                         </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="card_o p-3 bg-white my-4"
+                  style="box-shadow: 0 0 15px gainsboro; border-radius: 10px"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-center mb-3"
+                  >
+                    <h5>How to Cook</h5>
+                    <i class="fas fa-pen"></i>
+                  </div>
+                  <button
+                    class="btn btn-custom d-flex align-items-center px-3 py-0 mt-3 Ingredient w-100"
+                  >
+                    <span >+</span> Add Directions
+                  </button>
+                </div>
+                <div
+                  class="card_o p-3 bg-white my-4"
+                  style="box-shadow: 0 0 15px gainsboro; border-radius: 10px"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-center mb-3"
+                  >
+                    <h5>Additional Info</h5>
+                    <i class="fas fa-pen"></i>
+                  </div>
+                  <div
+                    class="accordion accordion-flush"
+                    id="accordionFlushExample"
+                  >
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="flush-headingOne">
+                        <button
+                          class="p-2 px-3 text-left btn-custom2 w-100"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#flush-collapsetwo"
+                          aria-expanded="false"
+                          aria-controls="flush-collapsetwo"
+                        >
+                        <span class="text-dark mr-3">+</span> <span>Add Info</span>
+                        </button>
+                      </h2>
+                      <div
+                        id="flush-collapsetwo"
+                        class="accordion-collapse collapse"
+                        aria-labelledby="flush-headingtwo"
+                        data-bs-parent="#accordionFlushExample"
+                      >
+                        <div class="accordion-body">
+                            <div class="addinfo">
+                                <label for="">Add Info</label>
+                                <textarea name="" cols="30" rows="4" type="text"
+                                id="custom_inp"
+                                class="w-100 mb-2"
+                                placeholder="Write Ingredients
+    ----------------
+    ----------------
+    ----------------"></textarea>
+                             </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="sel d-flex flex-column">
+                    <label for="">Save to</label>
+                    <select name="" id="" class="sel_form">
+                        <option value="">Western (5)</option>
+                    </select>
+                </div>
+                <div class="save d-flex flex-column">
+                    <p class="m-0 p-0 text-warning text-right">Complete the recipe to post</p>
+                    <div class="buttons_ mt-2 d-flex justify-content-end">
+                        <button class="btn btn-outline-success">Save Recipe</button>
+                        <button class="btn btn-success ml-2">Post to Feed</button>
+                    </div>
+                </div>
+            </div>
+            </div>
+          </div>
+          <div class="create_recipe mb-4">
+            <div
+              class="card_add col-lg-12 bg-white d-flex justify-content-between align-items-center py-4"
+            >
+              <p>286 of your followers are online</p>
+              <button class="btn btn-success px-4 cr">Create Recipe</button>
+            </div>
+          </div>
+          <article class="bg-white p-4">
+            <div class="post_card mb-4">
+              <div class="info_man d-flex py-3 px-4">
+                <div
+                  class="img d-flex justify-content-center align-items-center"
+                >
+                  <img src="img/Oval.png" alt="" />
+                </div>
+                <div class="info__ ml-3">
+                  <p>Zeb El Ard</p>
+                  <p>23h ago</p>
+                </div>
+              </div>
+              <div class="img_or_video">
+                <img src="img/Img.jpg" alt="" />
+              </div>
+              <div class="bottom_post_info p-4">
+                <div
+                  class="d-flex like justify-content-between align-items-center"
+                >
+                  <h5>Tofu Salad Ginger Garlic</h5>
+                  <form action="">
+                    <label for="like"><i class="far fa-heart"></i></label>
+                    <input
+                      type="checkbox"
+                      name="like"
+                      id="like"
+                      style="display: none"
+                    />
+                  </form>
+                </div>
+                <p class="text-secondary">
+                  I thought this salad was exceptionally delicious and healthy.
+                  I recommend pressing the entire tofu block for at least 20
+                  minutes before to remove excess water in the ...
+                </p>
+                <div
+                  class="likes_comments d-flex justify-content-between align-items-center"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <span>58m likes</span>
+                    <span class="mx-2">.</span>
+                    <span>28k comments</span>
+                  </div>
+                  <button class="btn btn-outline-success">+ Save</button>
+                </div>
+              </div>
+            </div>
+            <div class="post_card mb-4">
+              <div class="info_man d-flex py-3 px-4">
+                <div
+                  class="img d-flex justify-content-center align-items-center"
+                >
+                  <img src="img/Oval.png" alt="" />
+                </div>
+                <div class="info__ ml-3">
+                  <p>Zeb El Ard</p>
+                  <p>23h ago</p>
+                </div>
+              </div>
+              <div class="img_or_video">
+                <img src="img/Img.jpg" alt="" />
+              </div>
+              <div class="bottom_post_info p-4">
+                <div
+                  class="d-flex like justify-content-between align-items-center"
+                >
+                  <h5>Tofu Salad Ginger Garlic</h5>
+                  <form action="">
+                    <label for="like"><i class="far fa-heart"></i></label>
+                    <input
+                      type="checkbox"
+                      name="like"
+                      id="like"
+                      style="display: none"
+                    />
+                  </form>
+                </div>
+                <p class="text-secondary">
+                  I thought this salad was exceptionally delicious and healthy.
+                  I recommend pressing the entire tofu block for at least 20
+                  minutes before to remove excess water in the ...
+                </p>
+                <div
+                  class="likes_comments d-flex justify-content-between align-items-center"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <span>58m likes</span>
+                    <span class="mx-2">.</span>
+                    <span>28k comments</span>
+                  </div>
+                  <button class="btn btn-outline-success">+ Save</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="want_follow my-5 w-100">
+              <div
+                class="top_this_sec d-flex justify-content-between align-items-center"
+              >
+                <p class="m-0">People you might want to follow</p>
+                <a href="" class="text-success">See all Suggestion</a>
+              </div>
+              <div
+                class="cards_followers col-lg-12 d-flex justify-content-between py-4"
+              >
+                <div class="card_profile_short_info border col-lg-4">
+                  <div
+                    class="poster"
+                    style="
+                      background-image: url('img/Img.jpg');
+                      background-size: cover;
+                    "
+                  >
+                    <div
+                      class="layer"
+                      style="
+                        height: inherit;
+                        background-color: rgba(255, 255, 255, 0.488);
+                      "
+                    ></div>
+                  </div>
+                  <div class="img_radius">
+                    <img src="img/Oval.png" alt="" />
+                  </div>
+                  <div class="bot text-center">
+                    <h5>Zeb El Ard</h5>
+                    <div class="d-flex justify-content-around">
+                      <div class="rec">
+                        <p>284</p>
+                        <span>recipes</span>
+                      </div>
+                      <div class="followers">
+                        <p>284</p>
+                        <span>followers</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card_profile_short_info border col-lg-4">
+                  <div
+                    class="poster"
+                    style="
+                      background-image: url('img/Img.jpg');
+                      background-size: cover;
+                    "
+                  >
+                    <div
+                      class="layer"
+                      style="
+                        height: inherit;
+                        background-color: rgba(255, 255, 255, 0.488);
+                      "
+                    ></div>
+                  </div>
+                  <div class="img_radius">
+                    <img src="img/Oval.png" alt="" />
+                  </div>
+                  <div class="bot text-center">
+                    <h5>Zeb El Ard</h5>
+                    <div class="d-flex justify-content-around">
+                      <div class="rec">
+                        <p>284</p>
+                        <span>recipes</span>
+                      </div>
+                      <div class="followers">
+                        <p>284</p>
+                        <span>followers</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card_profile_short_info border col-lg-4">
+                  <div
+                    class="poster"
+                    style="
+                      background-image: url('img/Img.jpg');
+                      background-size: cover;
+                    "
+                  >
+                    <div
+                      class="layer"
+                      style="
+                        height: inherit;
+                        background-color: rgba(255, 255, 255, 0.488);
+                      "
+                    ></div>
+                  </div>
+                  <div class="img_radius">
+                    <img src="img/Oval.png" alt="" />
+                  </div>
+                  <div class="bot text-center">
+                    <h5>Zeb El Ard</h5>
+                    <div class="d-flex justify-content-around">
+                      <div class="rec">
+                        <p>284</p>
+                        <span>recipes</span>
+                      </div>
+                      <div class="followers">
+                        <p>284</p>
+                        <span>followers</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="post_card mb-4">
+              <div class="info_man d-flex py-3 px-4">
+                <div
+                  class="img d-flex justify-content-center align-items-center"
+                >
+                  <img src="img/Oval.png" alt="" />
+                </div>
+                <div class="info__ ml-3">
+                  <p>Zeb El Ard</p>
+                  <p>23h ago</p>
+                </div>
+              </div>
+              <div class="img_or_video">
+                <img src="img/Img.jpg" alt="" />
+              </div>
+              <div class="bottom_post_info p-4">
+                <div
+                  class="d-flex like justify-content-between align-items-center"
+                >
+                  <h5>Tofu Salad Ginger Garlic</h5>
+                  <form action="">
+                    <label for="like"><i class="far fa-heart"></i></label>
+                    <input
+                      type="checkbox"
+                      name="like"
+                      id="like"
+                      style="display: none"
+                    />
+                  </form>
+                </div>
+                <p class="text-secondary">
+                  I thought this salad was exceptionally delicious and healthy.
+                  I recommend pressing the entire tofu block for at least 20
+                  minutes before to remove excess water in the ...
+                </p>
+                <div
+                  class="likes_comments d-flex justify-content-between align-items-center"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <span>58m likes</span>
+                    <span class="mx-2">.</span>
+                    <span>28k comments</span>
+                  </div>
+                  <button class="btn btn-outline-success">+ Save</button>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="col-lg-3 border mx-1 p-0">
+          <div class="live p-4 bg-white mb-4">
+            <h6>Live cooking by scratch</h6>
+            <div class="video my-4">
+              <img src="img/Video.png" alt="" />
+            </div>
+          </div>
+          <div class="active_today p-4 bg-white mb-4">
+            <h6>Most Active Today</h6>
+            <div
+              class="images_act d-flex justify-content-between align-items-center mt-3 p-0"
+            >
+              <img src="img/Oval.png" alt="" />
+              <img src="img/Oval.png" alt="" />
+              <img src="img/Oval.png" alt="" />
+              <img src="img/Oval.png" alt="" />
+              <img src="img/Oval.png" alt="" />
+              <img src="img/Oval.png" alt="" />
+            </div>
+          </div>
+          <div class="copy_right p-4 bg-white mb-4">
+            <nav class="d-flex justify-content-between align-items-center">
+              <a href="" class="text-dark">About scratch</a
+              ><a href="" class="text-dark">Help Center</a
+              ><a href="" class="text-dark">Privacy Policy</a>
+            </nav>
+            <div class="copy mt-4">
+              <p>© scratch by Ahmed Bassam Abu Karesh 2023</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"
+      integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+        var add = document.querySelector('.parent-popup')
+        var btn = document.querySelector('.cr')
+        var exit = document.querySelector('.exit')
+        btn.onclick = ()=>{
+            add.style.display = "flex";
+        }
+        exit.onclick = ()=>{
+            add.style.display = "none";
+        }
+    </script>
+  </body>
+</html>

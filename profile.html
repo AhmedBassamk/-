@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="css/all.css" />
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/hover-min.css" />
+    <link rel="stylesheet" href="css/mystyle.css" />
+    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+
+<style>
+          main{
+            position: relative;
+        }
+        .imageback{
+            background-image: url('img/Img.png');
+            background-position: top;
+            background-size: cover;
+            height: 300px;
+            background-repeat: no-repeat;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+      .imageback .layer{
+        width: 100%;
+        height: initial;
+        background: linear-gradient(to bottom ,rgba(255, 255, 255, 0.592) , #F7F8FA);
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+      .card_swiper{
+        position: relative;
+        border-radius: 11px;
+        transition: .2s;
+      }
+      .layer_bg{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #ffffff77;
+        border-radius: 10px;
+        transition: .2s;
+        z-index: 1;
+      }
+      .active_layer{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #ffffff00;
+        border-radius: 10px;
+        transition: .2s;
+        z-index: 1;
+      }
+      .card_swiper:hover .layer_bg{
+        background-color: transparent;
+    }
+      .name_male{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: center;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+      .name_male p{
+        margin: 0;
+      }
+      .swiper-wrapper{
+        transition-duration: 0ms;
+        position: relative;
+        right: 280px;
+      }
+      .swiper{
+        position: relative;
+      }
+      .swiper::before {
+       content: '';
+       position: absolute;
+       right: -20px;
+       top: 0;
+       bottom: 0;
+       width: 100px;
+       height: 150px;
+       background-color: #f7f8faac;
+       box-shadow: -10px 0 8px #f7f8faac;
+       z-index: 1111111111111111111;
+      }
+     .post_card{
+        flex: 0 0 48.666667% !important;
+    max-width: 297.666667%;
+     }
+     .top_recipe {
+      margin-top: 35px;
+     }
+
+     *, :after, :before {
+	 box-sizing: border-box;
+}
+ body {
+	 margin: 60px auto;
+	 text-align: center;
+}
+ .toggle {
+	 margin-bottom: 10px;
+}
+ .toggle label {
+	 position: relative;
+	 display: inline-block;
+	 width: 55px;
+	 height: 25px;
+	 background-color: #e1e1e1;
+	 border-radius: 50px;
+	 transition: all 0.3s ease-in-out;
+	 cursor: pointer;
+	 box-shadow: inset 0 0 2px 1px rgba(0, 0, 0, 0.1);
+	 -webkit-tap-highlight-color: transparent;
+}
+ .toggle label:before {
+	 content: "";
+	 position: absolute;
+	 top: 0px;
+	 left: 1px;
+	 height: 24px;
+	 width: 24px;
+	 background-color: #fff;
+	 border-radius: 46px;
+	 box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+	 transition: box-shadow 0.3s ease-in-out;
+	 animation: moveLeft 0.3s ease-in-out;
+}
+ .toggle input {
+	 display: none;
+}
+ .toggle input:checked + label {
+	 background-color: #57de72;
+}
+ .toggle input:checked + label:before {
+	 transform: translateX(30px);
+	 box-shadow: -1px -1px 5px rgba(0, 0, 0, 0.1);
+	 animation: moveRight 0.3s ease-in-out;
+}
+ @keyframes moveRight {
+	 0% {
+		 width: 26px;
+		 transform: translateX(0);
+	}
+	 45% {
+		 width: 32px;
+	}
+	 100% {
+		 width: 26px;
+		 transform: translateX(40px);
+	}
+}
+ @keyframes moveLeft {
+	 0% {
+		 width: 26px;
+		 transform: translateX(40px);
+	}
+	 45% {
+		 width: 32px;
+	}
+	 100% {
+		 width: 26px;
+		 transform: translateX(0);
+	}
+}
+ .fixed{
+  position: fixed;
+  background-color: #e1e1e165;
+  z-index: 11;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  display: none;
+ }
+ .cardstng{
+  border-radius: 10px;
+  box-shadow: 0 0 10px gainsboro;
+
+ }
+    </style>
+</head>
+  <body style="background: #F7F8FA; margin: 0;">
+        <header class="bg-white">
+        <div class="container d-flex justify-content-between align-items-center py-3">
+        <div class="logo">
+            <img src="img/Logo.svg" alt="">
+        </div>
+        <div class="search">
+            <form action="" method="get">
+                <i class="fas fa-search"></i>
+                <input type="search" name="search" placeholder="Search Recipe, Profile, or Ingredients" id="">
+            </form>
+        </div>
+        <div class="nav d-flex justify-content-between align-items-center ">
+            <a href="" class="mx-3"><img src="img/Notifications.svg" alt=""></a>
+            <a href="" class="mx-3"><img src="img/Message.svg" alt=""></a>
+            <a href="" class="mx-3">
+                <img src="img/Oval.png" alt="">
+            </a>
+        </div>
+        </div>
+    </header>
+    <div class="fixed w-100  justify-content-center align-items-center">
+      <div class="cardstng col-lg-5 bg-white p-5">
+        <button class="exit text-right"><i class="fas fa-times"></i></button>
+        <h4 class="text-left mb-5">Settings</h4>
+        <form action="">
+          <p class="text-left text-secondary mb-4">Email Notifications</p>
+          <div class="d-flex justify-content-between">
+            <p class="pb-4 m-0 border-bottom text-left" style="width: 70%;">Notify me for new followers</p>
+            <div class="toggle">
+              <input type="checkbox" id="toggle2" />
+              <label for="toggle2"></label>
+            </div>
+          </div>
+          <p class="text-left text-secondary my-4">Privacy Settings</p>
+          <div class="d-flex justify-content-between">
+            <p class="pb-4 m-0 text-left" style="width: 70%;">Followers can see my saved recipes</p>
+            <div class="toggle">
+              <input type="checkbox" id="toggle2" />
+              <label for="toggle2"></label>
+            </div>
+          </div>
+          <div class="p-2 mb-4 d-flex justify-content-center align-items-center" style="background-color: #f6f6f6; border-radius: 10px;">
+            <p class="m-0 ">If disabled, you won’t be able to see recipes saved by other profiles. Leave this enabled to share your collected recipes to others. <a href="" class="text-success">why this matter?</a></p>
+          </div>
+          <div class="d-flex justify-content-between">
+            <p class="pb-4 m-0 border-bottom text-left" style="width: 70%;">Followers can see profiles I follow</p>
+            <div class="toggle">
+              <input type="checkbox" id="toggle2" />
+              <label for="toggle2"></label>
+            </div>
+          </div>
+          <div class="cp mt-4">
+            <a href="" class="d-flex justify-content-between align-items-center"><span class="text-dark">Change Password</span> <i class="fas fa-chevron-right text-dark"></i></a>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <main class="col-lg-12 pt-5">
+        <div class="imageback">
+            <div class="layer"></div>
+        </div>
+        <div class="container d-flex">
+            <div class="col-lg-3 mx-1 p-0">
+                <div class="card_prof bg-white py-3 px-4 mb-4">
+                    <div class="top_card_ d-flex border-bottom">
+                        <div class="image mr-3">
+                            <img src="img/Oval.png" alt="">
+                        </div>
+                        <div class="information">
+                            <h5 class="text-dark">Zeb Al Ard</h5>
+                            <p style="font-size: 14px;">Lorem, ipsum dolor.</p>
+                            <div class="down d-flex justify-content-between my-2">
+                                <span>58m followers</span>
+                                <span class="mx-2">.</span>
+                                <span>28k likes</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom_card_ d-flex justify-content-between align-items-center my-3">
+                        <div class="count text-center">
+                            <h4>50</h4>
+                            <p>Recipes</p>
+                        </div>
+                        <div class="count text-center">
+                            <h4>20</h4>
+                            <p>saved</p>
+                        </div>
+                        <div class="count text-center">
+                            <h4>650</h4>
+                            <p>following</p>
+                        </div>
+                      
+                    </div>
+                </div>
+                <div class="top_recipe bg-white p-4">
+                    <ul class="text-left">
+                        <li><img src="img/Edit.svg" alt=""><a href="" class="ml-3" style="color: #030F09;">Edit Profile</a></li>
+                        <li><img src="img/Settings.svg" alt=""><a href="" class="ml-3 Setting" style="color: #030F09;">Settings</a></li>
+                        <li><img src="img/Logout.svg" alt=""><a href="" class="ml-3" style="color: #030F09;">Log Out</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-9 mx-1 p-0">
+               <div class="begin mb-4 d-flex justify-content-between align-items-center">
+                <h2 class="ml-4">My Recipes</h2>
+                <button class="btn btn-outline-success">+ Add New</button>
+               </div>
+               <div class="swiperjs col-lg-12 mb-5">
+                <div #swiperRef="" class="swiper mySwiper">
+                    <div class="swiper-wrapper" id="swiper-wrapper-4110106b6f10a73c87e" aria-live="polite" style="transition-duration: 0ms; transform: translate3d(55px, 0px, 0px);">
+                      <div class="card_swiper col-lg-2 swiper-slide" style="background-image: url('img/Video.png');background-size: cover;height: 140px;">
+                        <div class="layer_bg active_layer"></div>
+                          <div class="name_male bg-white w-100 py-2">
+                            <p>Western (9)</p>
+                          </div>
+                        </div>
+                      <div class="card_swiper col-lg-2 swiper-slide" style="background-image: url('img/Video.png');background-size: cover;height: 140px;">
+                        <div class="layer_bg"></div>
+                          <div class="name_male bg-white w-100 py-2">
+                            <p>Western (9)</p>
+                          </div>
+                        </div>
+                      <div class="card_swiper col-lg-2 swiper-slide" style="background-image: url('img/Video.png');background-size: cover;height: 140px;">
+                        <div class="layer_bg"></div>
+                          <div class="name_male bg-white w-100 py-2">
+                            <p>Western (9)</p>
+                          </div>
+                        </div>
+                      <div class="card_swiper col-lg-2 swiper-slide" style="background-image: url('img/Video.png');background-size: cover;height: 140px;">
+                        <div class="layer_bg"></div>
+                          <div class="name_male bg-white w-100 py-2">
+                            <p>Western (9)</p>
+                          </div>
+                        </div>
+                      <div class="card_swiper col-lg-2 swiper-slide" style="background-image: url('img/Video.png');background-size: cover;height: 140px;">
+                        <div class="layer_bg"></div>
+                          <div class="name_male bg-white w-100 py-2">
+                            <p>Western (9)</p>
+                          </div>
+                        </div>
+                      <div class="card_swiper col-lg-2 swiper-slide" style="background-image: url('img/Video.png');background-size: cover;height: 140px;">
+                        <div class="layer_bg"></div>
+                          <div class="name_male bg-white w-100 py-2">
+                            <p>Western (9)</p>
+                          </div>
+                        </div>
+                      <div class="card_swiper col-lg-2 swiper-slide" style="background-image: url('img/Video.png');background-size: cover;height: 140px;">
+                        <div class="layer_bg"></div>
+                          <div class="name_male bg-white w-100 py-2">
+                            <p>Western (9)</p>
+                          </div>
+                        </div>
+                      <div class="card_swiper col-lg-2 swiper-slide" style="background-image: url('img/Video.png');background-size: cover;height: 140px;">
+                        <div class="layer_bg"></div>
+                          <div class="name_male bg-white w-100 py-2">
+                            <p>Western (9)</p>
+                          </div>
+                        </div>
+                      <div class="card_swiper col-lg-2 swiper-slide" style="background-image: url('img/Video.png');background-size: cover;height: 140px;">
+                        <div class="layer_bg"></div>
+                          <div class="name_male bg-white w-100 py-2">
+                            <p>Western (9)</p>
+                          </div>
+                        </div>
+                      <div class="card_swiper col-lg-2 swiper-slide" style="background-image: url('img/Video.png');background-size: cover;height: 140px;">
+                        <div class="layer_bg"></div>
+                          <div class="name_male bg-white w-100 py-2">
+                            <p>Western (9)</p>
+                          </div>
+                        </div>
+                      <div class="card_swiper col-lg-2 swiper-slide" style="background-image: url('img/Video.png');background-size: cover;height: 140px;">
+                        <div class="layer_bg"></div>
+                          <div class="name_male bg-white w-100 py-2">
+                            <p>Western (9)</p>
+                          </div>
+                        </div>
+                      <div class="card_swiper col-lg-2 swiper-slide" style="background-image: url('img/Video.png');background-size: cover;height: 140px;">
+                        <div class="layer_bg"></div>
+                          <div class="name_male bg-white w-100 py-2">
+                            <p>Western (9)</p>
+                          </div>
+                        </div>
+                      <div class="card_swiper col-lg-2 swiper-slide" style="background-image: url('img/Video.png');background-size: cover;height: 140px;">
+                        <div class="layer_bg"></div>
+                          <div class="name_male bg-white w-100 py-2">
+                            <p>Western (9)</p>
+                          </div>
+                        </div>
+                      <div class="card_swiper col-lg-2 swiper-slide" style="background-image: url('img/Video.png');background-size: cover;height: 140px;">
+                        <div class="layer_bg"></div>
+                          <div class="name_male bg-white w-100 py-2">
+                            <p>Western (9)</p>
+                          </div>
+                        </div>
+                      <div class="card_swiper col-lg-2 swiper-slide" style="background-image: url('img/Video.png');background-size: cover;height: 140px;">
+                        <div class="layer_bg"></div>
+                          <div class="name_male bg-white w-100 py-2">
+                            <p>Western (9)</p>
+                          </div>
+                        </div>
+                      <div class="card_swiper col-lg-2 swiper-slide" style="background-image: url('img/Video.png');background-size: cover;height: 140px;">
+                        <div class="layer_bg"></div>
+                          <div class="name_male bg-white w-100 py-2">
+                            <p>Western (9)</p>
+                          </div>
+                        </div>
+                      <div class="card_swiper col-lg-2 swiper-slide" style="background-image: url('img/Video.png');background-size: cover;height: 140px;">
+                        <div class="layer_bg"></div>
+                          <div class="name_male bg-white w-100 py-2">
+                            <p>Western (9)</p>
+                          </div>
+                        </div>
+                      <div class="card_swiper col-lg-2 swiper-slide" style="background-image: url('img/Video.png');background-size: cover;height: 140px;">
+                        <div class="layer_bg"></div>
+                          <div class="name_male bg-white w-100 py-2">
+                            <p>Western (9)</p>
+                          </div>
+                        </div>
+                      <div class="card_swiper col-lg-2 swiper-slide" style="background-image: url('img/Video.png');background-size: cover;height: 140px;">
+                        <div class="layer_bg"></div>
+                          <div class="name_male bg-white w-100 py-2">
+                            <p>Western (9)</p>
+                          </div>
+                        </div>
+                      <!-- <div class="swiper-slide">Slide 2</div>
+                      <div class="swiper-slide">Slide 3</div>
+                      <div class="swiper-slide">Slide 4</div> -->
+                    </div>
+                    <div class="swiper-button-next text-dark" style="z-index: 1111111111111111;"></div>
+                    <div class="swiper-button-prev text-dark"></div>
+                    <!-- <div class="swiper-pagination"></div> -->
+                  </div>
+                
+               </div>
+               <article class="bg-white p-4 col-lg-12 d-flex justify-content-between align-items-center">
+                <div class="post_card my-4 col-lg-5">
+                    <div class="info_man d-flex py-3 px-4">
+                        <div class="img d-flex justify-content-center align-items-center">
+                            <img src="img/Oval.png" alt="">
+                        </div>
+                        <div class="info__ ml-3">
+                            <p>Zeb El Ard</p>
+                            <p>23h ago</p>
+                        </div>
+                    </div>
+                    <div class="img_or_video">
+                        <img src="img/Img.jpg" alt="">
+                    </div>
+                    <div class="bottom_post_info p-4">
+                        <div class="d-flex like justify-content-between align-items-center">
+                        <h5>Tofu Salad Ginger Garlic</h5>
+                         
+                        </div>
+                        <div class="likes_comments d-flex justify-content-between align-items-center">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span>58 mins</span>
+                                <span class="mx-2">.</span>
+                                <span>2 ingredients</span>
+                            </div>
+                            <button class="btn btn-outline-success"><i class="fas fa-play" style="font-size: 13px;"></i> Cook</button>
+                        </div>
+                    </div>
+                </div>
+          
+                <div class="post_card my-4 col-lg-5">
+                    <div class="info_man d-flex py-3 px-4">
+                        <div class="img d-flex justify-content-center align-items-center">
+                            <img src="img/Oval.png" alt="">
+                        </div>
+                        <div class="info__ ml-3">
+                            <p>Zeb El Ard</p>
+                            <p>23h ago</p>
+                        </div>
+                    </div>
+                    <div class="img_or_video">
+                        <img src="img/Img.jpg" alt="">
+                    </div>
+                    <div class="bottom_post_info p-4">
+                        <div class="d-flex like justify-content-between align-items-center">
+                        <h5>Tofu Salad Ginger Garlic</h5>
+                         
+                        </div>
+                        <div class="likes_comments d-flex justify-content-between align-items-center">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span>58 mins</span>
+                                <span class="mx-2">.</span>
+                                <span>2 ingredients</span>
+                            </div>
+                            <button class="btn btn-outline-success"><i class="fas fa-play" style="font-size: 13px;"></i> Cook</button>
+                        </div>
+                    </div>
+                </div>
+          
+                <div class="post_card my-4 col-lg-5">
+                    <div class="info_man d-flex py-3 px-4">
+                        <div class="img d-flex justify-content-center align-items-center">
+                            <img src="img/Oval.png" alt="">
+                        </div>
+                        <div class="info__ ml-3">
+                            <p>Zeb El Ard</p>
+                            <p>23h ago</p>
+                        </div>
+                    </div>
+                    <div class="img_or_video">
+                        <img src="img/Img.jpg" alt="">
+                    </div>
+                    <div class="bottom_post_info p-4">
+                        <div class="d-flex like justify-content-between align-items-center">
+                        <h5>Tofu Salad Ginger Garlic</h5>
+                         
+                        </div>
+                        <div class="likes_comments d-flex justify-content-between align-items-center">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span>58 mins</span>
+                                <span class="mx-2">.</span>
+                                <span>2 ingredients</span>
+                            </div>
+                            <button class="btn btn-outline-success"><i class="fas fa-play" style="font-size: 13px;"></i> Cook</button>
+                        </div>
+                    </div>
+                </div>
+          
+                <div class="post_card my-4 col-lg-5">
+                    <div class="info_man d-flex py-3 px-4">
+                        <div class="img d-flex justify-content-center align-items-center">
+                            <img src="img/Oval.png" alt="">
+                        </div>
+                        <div class="info__ ml-3">
+                            <p>Zeb El Ard</p>
+                            <p>23h ago</p>
+                        </div>
+                    </div>
+                    <div class="img_or_video">
+                        <img src="img/Img.jpg" alt="">
+                    </div>
+                    <div class="bottom_post_info p-4">
+                        <div class="d-flex like justify-content-between align-items-center">
+                        <h5>Tofu Salad Ginger Garlic</h5>
+                         
+                        </div>
+                        <div class="likes_comments d-flex justify-content-between align-items-center">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span>58 mins</span>
+                                <span class="mx-2">.</span>
+                                <span>2 ingredients</span>
+                            </div>
+                            <button class="btn btn-outline-success"><i class="fas fa-play" style="font-size: 13px;"></i> Cook</button>
+                        </div>
+                    </div>
+                </div>
+          
+                <div class="post_card my-4 col-lg-5">
+                    <div class="info_man d-flex py-3 px-4">
+                        <div class="img d-flex justify-content-center align-items-center">
+                            <img src="img/Oval.png" alt="">
+                        </div>
+                        <div class="info__ ml-3">
+                            <p>Zeb El Ard</p>
+                            <p>23h ago</p>
+                        </div>
+                    </div>
+                    <div class="img_or_video">
+                        <img src="img/Img.jpg" alt="">
+                    </div>
+                    <div class="bottom_post_info p-4">
+                        <div class="d-flex like justify-content-between align-items-center">
+                        <h5>Tofu Salad Ginger Garlic</h5>
+                         
+                        </div>
+                        <div class="likes_comments d-flex justify-content-between align-items-center">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span>58 mins</span>
+                                <span class="mx-2">.</span>
+                                <span>2 ingredients</span>
+                            </div>
+                            <button class="btn btn-outline-success"><i class="fas fa-play" style="font-size: 13px;"></i> Cook</button>
+                        </div>
+                    </div>
+                </div>
+          
+                <div class="post_card my-4 col-lg-5">
+                    <div class="info_man d-flex py-3 px-4">
+                        <div class="img d-flex justify-content-center align-items-center">
+                            <img src="img/Oval.png" alt="">
+                        </div>
+                        <div class="info__ ml-3">
+                            <p>Zeb El Ard</p>
+                            <p>23h ago</p>
+                        </div>
+                    </div>
+                    <div class="img_or_video">
+                        <img src="img/Img.jpg" alt="">
+                    </div>
+                    <div class="bottom_post_info p-4">
+                        <div class="d-flex like justify-content-between align-items-center">
+                        <h5>Tofu Salad Ginger Garlic</h5>
+                         
+                        </div>
+                        <div class="likes_comments d-flex justify-content-between align-items-center">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span>58 mins</span>
+                                <span class="mx-2">.</span>
+                                <span>2 ingredients</span>
+                            </div>
+                            <button class="btn btn-outline-success"><i class="fas fa-play" style="font-size: 13px;"></i> Cook</button>
+                        </div>
+                    </div>
+                </div>
+          
+                <div class="post_card my-4 col-lg-5">
+                    <div class="info_man d-flex py-3 px-4">
+                        <div class="img d-flex justify-content-center align-items-center">
+                            <img src="img/Oval.png" alt="">
+                        </div>
+                        <div class="info__ ml-3">
+                            <p>Zeb El Ard</p>
+                            <p>23h ago</p>
+                        </div>
+                    </div>
+                    <div class="img_or_video">
+                        <img src="img/Img.jpg" alt="">
+                    </div>
+                    <div class="bottom_post_info p-4">
+                        <div class="d-flex like justify-content-between align-items-center">
+                        <h5>Tofu Salad Ginger Garlic</h5>
+                         
+                        </div>
+                        <div class="likes_comments d-flex justify-content-between align-items-center">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span>58 mins</span>
+                                <span class="mx-2">.</span>
+                                <span>2 ingredients</span>
+                            </div>
+                            <button class="btn btn-outline-success"><i class="fas fa-play" style="font-size: 13px;"></i> Cook</button>
+                        </div>
+                    </div>
+                </div>
+          
+                <div class="post_card my-4 col-lg-5">
+                    <div class="info_man d-flex py-3 px-4">
+                        <div class="img d-flex justify-content-center align-items-center">
+                            <img src="img/Oval.png" alt="">
+                        </div>
+                        <div class="info__ ml-3">
+                            <p>Zeb El Ard</p>
+                            <p>23h ago</p>
+                        </div>
+                    </div>
+                    <div class="img_or_video">
+                        <img src="img/Img.jpg" alt="">
+                    </div>
+                    <div class="bottom_post_info p-4">
+                        <div class="d-flex like justify-content-between align-items-center">
+                        <h5>Tofu Salad Ginger Garlic</h5>
+                         
+                        </div>
+                        <div class="likes_comments d-flex justify-content-between align-items-center">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span>58 mins</span>
+                                <span class="mx-2">.</span>
+                                <span>2 ingredients</span>
+                            </div>
+                            <button class="btn btn-outline-success"><i class="fas fa-play" style="font-size: 13px;"></i> Cook</button>
+                        </div>
+                    </div>
+                </div>
+          
+                <div class="post_card my-4 col-lg-5">
+                    <div class="info_man d-flex py-3 px-4">
+                        <div class="img d-flex justify-content-center align-items-center">
+                            <img src="img/Oval.png" alt="">
+                        </div>
+                        <div class="info__ ml-3">
+                            <p>Zeb El Ard</p>
+                            <p>23h ago</p>
+                        </div>
+                    </div>
+                    <div class="img_or_video">
+                        <img src="img/Img.jpg" alt="">
+                    </div>
+                    <div class="bottom_post_info p-4">
+                        <div class="d-flex like justify-content-between align-items-center">
+                        <h5>Tofu Salad Ginger Garlic</h5>
+                         
+                        </div>
+                        <div class="likes_comments d-flex justify-content-between align-items-center">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span>58 mins</span>
+                                <span class="mx-2">.</span>
+                                <span>2 ingredients</span>
+                            </div>
+                            <button class="btn btn-outline-success"><i class="fas fa-play" style="font-size: 13px;"></i> Cook</button>
+                        </div>
+                    </div>
+                </div>
+          
+             
+
+            </article>
+            </div>
+        </div>
+    </main>
+      <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var Setting = document.querySelector('.Setting')
+    var fixed = document.querySelector('.fixed')
+    var exit = document.querySelector('.exit')
+    Setting.onclick = (e)=>{
+      e.preventDefault();
+      fixed.style.display = "flex"
+    }
+    exit.onclick = ()=>{
+            fixed.style.display = "none";
+        }
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 3,
+      centeredSlides: true,
+      spaceBetween: 30,
+      pagination: {
+        el: ".swiper-pagination",
+        type: "fraction",
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+
+    var appendNumber = 4;
+    var prependNumber = 1;
+    document
+      .querySelector(".prepend-2-slides")
+      .addEventListener("click", function (e) {
+        e.preventDefault();
+        swiper.prependSlide([
+          '<div class="swiper-slide">Slide ' + --prependNumber + "</div>",
+          '<div class="swiper-slide">Slide ' + --prependNumber + "</div>",
+        ]);
+      });
+    document
+      .querySelector(".prepend-slide")
+      .addEventListener("click", function (e) {
+        e.preventDefault();
+        swiper.prependSlide(
+          '<div class="swiper-slide">Slide ' + --prependNumber + "</div>"
+        );
+      });
+    document
+      .querySelector(".append-slide")
+      .addEventListener("click", function (e) {
+        e.preventDefault();
+        swiper.appendSlide(
+          '<div class="swiper-slide">Slide ' + ++appendNumber + "</div>"
+        );
+      });
+    document
+      .querySelector(".append-2-slides")
+      .addEventListener("click", function (e) {
+        e.preventDefault();
+        swiper.appendSlide([
+          '<div class="swiper-slide">Slide ' + ++appendNumber + "</div>",
+          '<div class="swiper-slide">Slide ' + ++appendNumber + "</div>",
+        ]);
+      });
+  </script>
+  </body>
+  </html>
